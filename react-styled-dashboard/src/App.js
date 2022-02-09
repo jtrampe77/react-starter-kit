@@ -4,7 +4,7 @@ function App() {
   return (
         <header>
           <h1>React Starter Framework</h1>
-          <Button variant="default">default</Button>
+          {/* <Button variant="default">default</Button> */}
           <Button variant="warning">warning</Button>
           <Button variant="danger">danger</Button>
           <Button variant="info">info</Button>
