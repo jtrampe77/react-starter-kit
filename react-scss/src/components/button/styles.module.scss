@@ -1,0 +1,25 @@
+%buttonBase {
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 1px rgb(220, 220, 220);
+    margin: 2rem;
+    padding: 0.25rem 2rem;
+    color: grey;
+}
+
+.default {
+    @extend %buttonBase;
+}
+
+.warning {
+    @extend %buttonBase;
+    background-color: rgb(163, 92, 0);
+    color: white;
+}
+
+.danger {
+    @extend %buttonBase;
+    background-color: red;
+    color: white;
+}

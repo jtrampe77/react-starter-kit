@@ -1,0 +1,20 @@
+.danger, .warning, .default {
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 3px 1px gainsboro;
+  margin: 2rem;
+  padding: 0.25rem 2rem;
+  color: grey;
+}
+
+.warning {
+  background-color: #a35c00;
+  color: white;
+}
+
+.danger {
+  background-color: red;
+  color: white;
+}
+/*# sourceMappingURL=styles.css.map */
