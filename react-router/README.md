@@ -1,27 +1,20 @@
-# React Starter Kit
+# React Router Dom
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Checklist
+- Install SC
+- Linking 
+- Make sure all components(pages) are completed. Skeleton Framework
+- LogInPage, DashboardPage, PageNotFound
 
-# Scripts
 
-__Development Build__ 
-> ```npm start``` 
-> Run the following command from your terminal. 
-> Starts development server automatically.  
-> Open browser to  [http://localhost:3000](http://localhost:3000)  
-> project. 
+## 1. Setup Index.js with browser router
+- React router <BrowserRouter /> must wrap the app component
+- This allows you to use Routing/Linking in the app
 
- 
- __Production Build__ 
-> ```npm run build``` 
-> Builds the app for production. 
-> Optimizes the build for the best performance.  
-> Open browser to  [http://localhost:3000](http://localhost:3000)  
-> For more information on [deployments](https://facebook.github.io/create-react-app/docs/deployment). 
-
- 
-
- 
+ ## 2. Setting up Routes in the App component
+ - Importing Page components
+ - Routes
+ - Route
 
  
 
