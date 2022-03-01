@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import {Label} from '../../ui/forms'
 import {Input} from '../../ui/forms'
@@ -26,6 +26,19 @@ const FormControl = styled.div`
 
 function LoginPage(props) {
   
+  console.log("component render")
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  function onHandleSignIn(e){
+      e.preventDefault();
+      console.log(email, password)
+      // Send email password to firebase to authenticate 
+      // or show error
+
+
+  }
+
   return (
 
      <LoginPageStyles>
@@ -33,19 +46,21 @@ function LoginPage(props) {
          <h1>Please Login</h1>
        </header>
 
-      <FormControl>
-        <Label>Email</Label>
-        <Input type="text" placeholder="email.com" />
-      </FormControl> 
+       <form onSubmit={onHandleSignIn}>
+          <FormControl>
+            <Label>Email</Label>
+            <Input type="text" placeholder="email.com" onChange={(e)=> setEmail(e.target.value)} />
+          </FormControl> 
 
-      <FormControl>
-        <Label>Password</Label>
-        <Input type="text" placeholder="password" />
-      </FormControl> 
+          <FormControl>
+            <Label>Password</Label>
+            <Input type="text" placeholder="password" onChange={(e)=> setPassword(e.target.value)} />
+          </FormControl> 
 
-      <FormControl>
-        <SubmitButton bgcolor="red" margin="2rem 0">Sign In</SubmitButton>
-      </FormControl>
+          <FormControl>
+            <SubmitButton bgcolor="red" margin="2rem 0">Sign In</SubmitButton>
+          </FormControl>
+       </form>
 
      </LoginPageStyles>
 
