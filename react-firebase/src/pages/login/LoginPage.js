@@ -1,46 +1,54 @@
 import React from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import styled from 'styled-components'
+import {Label} from '../../ui/forms'
+import {Input} from '../../ui/forms'
+import { SubmitButton } from '../../ui/buttons'
 
-function LoginPage(props) {
-  // window.location.assign('page.html')
+const LoginPageStyles = styled.section`
+  max-width: 400px;
+  margin:2rem auto;
 
-  // router   navigate to a path
-  let navigation = useNavigate();
-
-  function onHandleSubmit(e){
-    e.preventDefault();
-    navigation('dashboard');
-
-    // FIREBASE AUTH
-
+  h1{
+    font-size:2rem;
   }
 
+  header{
+    margin-bottom:2rem;
+  }
+
+`
+
+const FormControl = styled.div`
+    margin-bottom: 1rem;
+`
+
+
+
+function LoginPage(props) {
+  
   return (
-    <>
-    <nav>
-      <ul>
-        <li>
-        <Link to="/">Login</Link>
-        </li>
-        
-        <li>
-        <Link to="/dashboard">Dashboard</Link>
-        </li>
-      </ul>
-    </nav>
-     <header>
-        <h1>Login Page</h1>
-    </header>
 
-    <form onSubmit={onHandleSubmit}>
-      <input type="text" />
-      <button type='submit'>Submit</button>
-    </form>
+     <LoginPageStyles>
+       <header>
+         <h1>Please Login</h1>
+       </header>
 
+      <FormControl>
+        <Label>Email</Label>
+        <Input type="text" placeholder="email.com" />
+      </FormControl> 
 
+      <FormControl>
+        <Label>Password</Label>
+        <Input type="text" placeholder="password" />
+      </FormControl> 
 
-    </>
-   
+      <FormControl>
+        <SubmitButton bgcolor="red" margin="2rem 0">Sign In</SubmitButton>
+      </FormControl>
+
+     </LoginPageStyles>
+
   )
 }
 
