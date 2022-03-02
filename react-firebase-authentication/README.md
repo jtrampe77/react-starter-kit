@@ -65,7 +65,8 @@ function onHandleSignIn (e){
     }
 ```
 
-
+## Firebase Auth Documentation
+https://firebase.google.com/docs/auth
 
  
 

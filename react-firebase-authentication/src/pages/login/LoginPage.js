@@ -1,40 +1,51 @@
 import React, {useState} from 'react'
-import styled from 'styled-components'
-import {Label} from '../../ui/forms'
-import {Input} from '../../ui/forms'
-import { SubmitButton } from '../../ui/buttons'
+import { useNavigate } from 'react-router-dom';
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {auth} from 'libs/firebase'
+import {ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import {BiCommentError} from 'react-icons/bi' 
 
-const LoginPageStyles = styled.section`
-  max-width: 400px;
-  margin:2rem auto;
-
-  h1{
-    font-size:2rem;
-  }
-
-  header{
-    margin-bottom:2rem;
-  }
-
-`
-
-const FormControl = styled.div`
-    margin-bottom: 1rem;
-`
-
+import {Label} from 'ui/forms'
+import {Input} from 'ui/forms'
+import { SubmitButton } from 'ui/buttons'
+import {LoginPageStyles, FormControl} from './styles'
 
 
 function LoginPage(props) {
   
-  console.log("component render")
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigator = useNavigate()
+
+  const notify = (error) => toast.error('Wrong Email / Password',{
+    position: "top-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    // icon:<BiCommentError/>
+
+  });
+
 
   function onHandleSignIn(e){
       e.preventDefault();
-      console.log(email, password)
-      // Send email password to firebase to authenticate 
-      // or show error
+ 
+      signInWithEmailAndPassword(auth,email,password)
+
+      .then(userCredential=>{
+        // move to dashboard
+        navigator("dashboard")
+
+      })
+      .catch(error=>{
+        notify(error)
+      })
+
+
 
 
   }
@@ -42,6 +53,9 @@ function LoginPage(props) {
   return (
 
      <LoginPageStyles>
+
+       <ToastContainer />
+
        <header>
          <h1>Please Login</h1>
        </header>
